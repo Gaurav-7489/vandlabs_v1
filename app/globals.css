@@ -1,11 +1,116 @@
 @import 'tailwindcss';
 
-:root { --ink:#111111; --paper:#f7f5f0; --warm:#e7e0d4; --muted:#6b6b6b; --rule:#d8d3cb; }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; background:var(--paper); color:var(--ink); font-family: Arial, Helvetica, sans-serif; }
-button,input,select,textarea { font:inherit; }
-::selection { background:#111; color:#f7f5f0; }
-.display { font-family: Georgia, 'Times New Roman', serif; letter-spacing:-.045em; }
-.grid-paper { background-image: linear-gradient(rgba(17,17,17,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,.045) 1px, transparent 1px); background-size: 32px 32px; }
-.no-scrollbar::-webkit-scrollbar { display:none; } .no-scrollbar { scrollbar-width:none; }
+@theme {
+  --color-ink: #111111;
+  --color-paper: #F7F5F0;
+  --color-warm: #E7E0D4;
+  --color-muted: #6B6B6B;
+  --color-rule: #D8D3CB;
+
+  --font-serif: var(--font-editorial), 'Cormorant Garamond', Georgia, serif;
+  --font-sans: var(--font-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: var(--font-mono), 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+}
+
+:root {
+  --ink: #111111;
+  --paper: #F7F5F0;
+  --warm: #E7E0D4;
+  --muted: #6B6B6B;
+  --rule: #D8D3CB;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Editorial Typography Scaffolding */
+.font-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.03em;
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Precision Swiss Grid & Editorial Textures */
+.grid-paper {
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(247, 245, 240, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 245, 240, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Vignette and Architectural Glass Shading */
+.editorial-glass {
+  background: rgba(17, 17, 17, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(247, 245, 240, 0.12);
+}
+
+.editorial-glass-light {
+  background: rgba(247, 245, 240, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+/* Precision Hairlines */
+.hairline-b {
+  border-bottom: 1px solid var(--rule);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--rule);
+}
+
+.hairline-r {
+  border-right: 1px solid var(--rule);
+}
+
+.hairline-l {
+  border-left: 1px solid var(--rule);
+}
+
+/* Scrollbar Sanitization */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
