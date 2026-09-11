@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SlidersHorizontal, X, Search, RotateCcw } from 'lucide-react'
+import { SlidersHorizontal, X, Search, RotateCcw, ArrowUpDown } from 'lucide-react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import VehicleCard from '@/components/VehicleCard'
@@ -67,29 +67,29 @@ export default function CarsPage() {
   }
 
   const FilterPanel = () => (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div>
-        <div className="flex items-center justify-between pb-2 border-b border-[#D8D3CB]">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#111111]">
+        <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-2">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#111111]">
             Vehicle Manufacturer
           </span>
           {brand !== 'All brands' && (
             <button
               onClick={() => setBrand('All brands')}
-              className="text-[10px] text-[#6B6B6B] hover:text-[#111111]"
+              className="text-[10px] uppercase tracking-wider text-[#6B6B6B] hover:text-[#111111]"
             >
               Clear
             </button>
           )}
         </div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {BRANDS.map((item) => (
             <button
               key={item}
               onClick={() => setBrand(item)}
-              className={`px-3 py-1.5 text-xs transition-all ${
+              className={`px-2.5 py-1.5 text-xs transition-all ${
                 brand === item
-                  ? 'bg-[#111111] text-[#F7F5F0] font-medium'
+                  ? 'border border-[#111111] bg-[#111111] font-medium text-[#F7F5F0]'
                   : 'border border-[#D8D3CB] bg-[#F7F5F0] text-[#111111] hover:border-[#111111]'
               }`}
             >
@@ -100,19 +100,19 @@ export default function CarsPage() {
       </div>
 
       <div>
-        <div className="flex items-center justify-between pb-2 border-b border-[#D8D3CB]">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#111111]">
+        <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-2">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#111111]">
             Body Architecture
           </span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {BODIES.map((item) => (
             <button
               key={item}
               onClick={() => setBody(item)}
-              className={`px-3 py-1.5 text-xs transition-all ${
+              className={`px-2.5 py-1.5 text-xs transition-all ${
                 body === item
-                  ? 'bg-[#111111] text-[#F7F5F0] font-medium'
+                  ? 'border border-[#111111] bg-[#111111] font-medium text-[#F7F5F0]'
                   : 'border border-[#D8D3CB] bg-[#F7F5F0] text-[#111111] hover:border-[#111111]'
               }`}
             >
@@ -123,19 +123,19 @@ export default function CarsPage() {
       </div>
 
       <div>
-        <div className="flex items-center justify-between pb-2 border-b border-[#D8D3CB]">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#111111]">
+        <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-2">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#111111]">
             Powertrain / Fuel
           </span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {FUELS.map((item) => (
             <button
               key={item}
               onClick={() => setFuel(item)}
-              className={`px-3 py-1.5 text-xs transition-all ${
+              className={`px-2.5 py-1.5 text-xs transition-all ${
                 fuel === item
-                  ? 'bg-[#111111] text-[#F7F5F0] font-medium'
+                  ? 'border border-[#111111] bg-[#111111] font-medium text-[#F7F5F0]'
                   : 'border border-[#D8D3CB] bg-[#F7F5F0] text-[#111111] hover:border-[#111111]'
               }`}
             >
@@ -146,19 +146,19 @@ export default function CarsPage() {
       </div>
 
       <div>
-        <div className="flex items-center justify-between pb-2 border-b border-[#D8D3CB]">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#111111]">
+        <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-2">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#111111]">
             Transmission
           </span>
         </div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
           {TRANSMISSIONS.map((item) => (
             <button
               key={item}
               onClick={() => setTransmission(item)}
-              className={`px-3 py-1.5 text-xs transition-all ${
+              className={`px-2.5 py-1.5 text-xs transition-all ${
                 transmission === item
-                  ? 'bg-[#111111] text-[#F7F5F0] font-medium'
+                  ? 'border border-[#111111] bg-[#111111] font-medium text-[#F7F5F0]'
                   : 'border border-[#D8D3CB] bg-[#F7F5F0] text-[#111111] hover:border-[#111111]'
               }`}
             >
@@ -171,40 +171,40 @@ export default function CarsPage() {
   )
 
   return (
-    <div className="min-h-screen bg-[#F7F5F0] text-[#111111] antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#F7F5F0] text-[#111111] antialiased">
       <Header />
-      <main className="pt-24 md:pt-32">
-        <div className="mx-auto max-w-[1440px] px-6 py-10 md:px-10 md:py-16">
-          {/* Header Bar */}
+      <main className="pt-20 sm:pt-24 md:pt-28">
+        <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 sm:py-12 md:px-10 lg:px-12">
+          {/* Header Section */}
           <Reveal>
-            <div className="flex flex-col justify-between gap-8 border-b border-[#D8D3CB] pb-10 lg:flex-row lg:items-end">
+            <div className="flex flex-col justify-between gap-6 border-b border-[#D8D3CB] pb-8 lg:flex-row lg:items-end">
               <div>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6B6B6B]">
-                  Live Inventory / {vehicles.length} Stock Available
+                <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6B6B]">
+                  Live Inventory / {vehicles.length} Units Cataloged
                 </span>
-                <h1 className="font-editorial mt-4 text-5xl leading-[0.9] tracking-tight md:text-7xl lg:text-8xl">
-                  Curated Fleet.
+                <h1 className="mt-3 font-serif text-4xl font-light tracking-tight text-[#111111] sm:text-6xl md:text-7xl lg:text-8xl">
+                  Curated Fleet<span className="text-[#6B6B6B]">.</span>
                 </h1>
               </div>
-              <p className="max-w-md text-sm leading-relaxed text-[#6B6B6B]">
-                Explore inspected and documented pre-owned automobiles. Every listing includes verified service histories and clear ownership status.
+              <p className="max-w-md text-xs sm:text-sm font-normal leading-relaxed text-[#6B6B6B]">
+                Explore inspected and documented pre-owned automobiles. Every listing includes verified service histories and clear ownership status[cite: 1].
               </p>
             </div>
           </Reveal>
 
-          {/* Catalog Controls */}
-          <div className="mt-8 flex flex-col gap-10 lg:grid lg:grid-cols-[260px_1fr]">
+          {/* Catalog Layout */}
+          <div className="mt-6 flex flex-col gap-8 lg:grid lg:grid-cols-[260px_1fr]">
             {/* Desktop Filters Sidebar */}
             <aside className="hidden lg:block border-r border-[#D8D3CB] pr-8">
-              <div className="sticky top-28">
-                <div className="mb-6 flex items-center justify-between">
-                  <span className="text-xs uppercase tracking-[0.16em] font-semibold text-[#111111]">
+              <div className="sticky top-28 space-y-6">
+                <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-3">
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#111111]">
                     Refine Selection
                   </span>
                   {activeFilterCount > 0 && (
                     <button
                       onClick={resetFilters}
-                      className="inline-flex items-center gap-1 text-xs text-[#6B6B6B] hover:text-[#111111]"
+                      className="inline-flex items-center gap-1 text-xs text-[#6B6B6B] transition-colors hover:text-[#111111]"
                     >
                       <RotateCcw className="h-3 w-3" />
                       <span>Reset</span>
@@ -217,98 +217,104 @@ export default function CarsPage() {
 
             {/* Catalog Main Feed */}
             <div className="min-w-0">
-              {/* Search & Sort Bar */}
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <div className="relative flex-1">
-                  <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6B6B6B]" />
+              {/* Responsive Search & Sort Controls */}
+              <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center">
+                {/* Search Bar */}
+                <div className="relative min-w-0 flex-1">
+                  <Search className="pointer-events-none absolute left-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#6B6B6B]" />
                   <input
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search by make, model, or variant (e.g. BMW, Fortuner)..."
-                    className="w-full border border-[#D8D3CB] bg-[#F7F5F0] py-3 pl-10 pr-4 text-xs tracking-wide text-[#111111] placeholder:text-[#6B6B6B]/60 focus:border-[#111111] focus:outline-none"
+                    placeholder="Search make, model, variant..."
+                    className="w-full border border-[#D8D3CB] bg-[#F7F5F0] py-2.5 pl-9 pr-8 text-xs tracking-wide text-[#111111] placeholder:text-[#6B6B6B]/60 transition-colors focus:border-[#111111] focus:outline-none"
                   />
                   {query && (
                     <button
                       onClick={() => setQuery('')}
-                      className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#6B6B6B] hover:text-[#111111]"
+                      aria-label="Clear query"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1 text-[#6B6B6B] hover:text-[#111111]"
                     >
                       <X className="h-3.5 w-3.5" />
                     </button>
                   )}
                 </div>
 
-                <div className="flex items-center gap-2">
+                {/* Filter Trigger & Sorter */}
+                <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center">
                   <button
                     onClick={() => setMobileDrawer(true)}
-                    className="inline-flex flex-1 items-center justify-center gap-2 border border-[#D8D3CB] bg-[#F7F5F0] px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#111111] lg:hidden"
+                    className="inline-flex items-center justify-center gap-1.5 border border-[#D8D3CB] bg-[#F7F5F0] px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#111111] transition-colors hover:border-[#111111] lg:hidden"
                   >
                     <SlidersHorizontal className="h-3.5 w-3.5" />
                     <span>Filters {activeFilterCount > 0 && `(${activeFilterCount})`}</span>
                   </button>
 
-                  <select
-                    value={sort}
-                    onChange={(e) => setSort(e.target.value)}
-                    className="border border-[#D8D3CB] bg-[#F7F5F0] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#111111] focus:border-[#111111] focus:outline-none"
-                  >
-                    {SORTS.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative col-span-1">
+                    <select
+                      value={sort}
+                      onChange={(e) => setSort(e.target.value)}
+                      className="w-full appearance-none border border-[#D8D3CB] bg-[#F7F5F0] py-2.5 pl-3 pr-7 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#111111] transition-colors focus:border-[#111111] focus:outline-none"
+                    >
+                      {SORTS.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                    <ArrowUpDown className="pointer-events-none absolute right-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-[#6B6B6B]" />
+                  </div>
                 </div>
               </div>
 
-              {/* Live Count Bar */}
-              <div className="mt-6 flex items-center justify-between border-b border-[#D8D3CB] pb-3 text-xs text-[#6B6B6B]">
+              {/* Status Indicator Bar */}
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-b border-[#D8D3CB] pb-3 text-xs text-[#6B6B6B]">
                 <span>
-                  Showing <strong className="text-[#111111] font-mono-num">{filtered.length}</strong>{' '}
-                  {filtered.length === 1 ? 'vehicle' : 'vehicles'} matching criteria
+                  Showing <strong className="font-mono text-[#111111]">{filtered.length}</strong>{' '}
+                  {filtered.length === 1 ? 'vehicle' : 'vehicles'}
                 </span>
                 {activeFilterCount > 0 && (
                   <button
                     onClick={resetFilters}
-                    className="text-xs text-[#111111] underline underline-offset-4"
+                    className="text-[11px] uppercase tracking-wider text-[#111111] underline underline-offset-4"
                   >
                     Clear all filters
                   </button>
                 )}
               </div>
 
-              {/* Grid List */}
+              {/* Vehicle Cards Grid */}
               {filtered.length > 0 ? (
-                <motion.div layout className="mt-8 grid gap-6 sm:grid-cols-2">
-                  <AnimatePresence>
+                <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <AnimatePresence mode="popLayout">
                     {filtered.map((car) => (
                       <motion.div
-                        layout
                         key={car.id}
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        layout
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.98 }}
-                        transition={{ duration: 0.35 }}
+                        transition={{ duration: 0.2 }}
                       >
                         <VehicleCard v={car} />
                       </motion.div>
                     ))}
                   </AnimatePresence>
-                </motion.div>
+                </div>
               ) : (
-                <div className="mt-12 border border-[#D8D3CB] bg-[#E7E0D4]/30 p-16 text-center">
-                  <h3 className="font-editorial text-3xl font-normal text-[#111111]">
+                <div className="mt-8 border border-[#D8D3CB] bg-[#E7E0D4]/20 p-8 text-center sm:p-14">
+                  <h3 className="font-serif text-2xl font-light text-[#111111] sm:text-3xl">
                     No vehicles match your criteria.
                   </h3>
-                  <p className="mt-3 text-xs text-[#6B6B6B]">
-                    Try loosening your filters or clearing search queries to explore the full showroom fleet.
+                  <p className="mx-auto mt-2 max-w-sm text-xs text-[#6B6B6B]">
+                    Try clearing search queries or loosening specifications to explore the full showroom fleet.
                   </p>
                   <button
                     onClick={resetFilters}
-                    className="mt-6 inline-flex items-center gap-2 border border-[#111111] bg-[#111111] px-5 py-2.5 text-xs uppercase tracking-[0.14em] font-semibold text-[#F7F5F0]"
+                    className="mt-5 inline-flex items-center gap-2 bg-[#111111] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#F7F5F0] transition-transform active:scale-95"
                   >
                     <RotateCcw className="h-3 w-3" />
-                    Reset All Filters
+                    <span>Reset All Filters</span>
                   </button>
                 </div>
               )}
@@ -317,7 +323,7 @@ export default function CarsPage() {
         </div>
       </main>
 
-      {/* Mobile Filters Drawer */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileDrawer && (
           <>
@@ -326,37 +332,39 @@ export default function CarsPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileDrawer(false)}
-              className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs lg:hidden"
+              className="fixed inset-0 z-50 bg-[#111111]/60 backdrop-blur-xs lg:hidden"
+              aria-hidden="true"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-[#F7F5F0] p-6 shadow-2xl lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-xs flex-col bg-[#F7F5F0] p-5 shadow-2xl lg:hidden"
             >
-              <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-4">
-                <h3 className="font-editorial text-2xl font-bold tracking-tight text-[#111111]">
+              <div className="flex items-center justify-between border-b border-[#D8D3CB] pb-3">
+                <h3 className="font-serif text-xl font-light tracking-tight text-[#111111]">
                   Filter Fleet
                 </h3>
                 <button
                   onClick={() => setMobileDrawer(false)}
+                  aria-label="Close filters"
                   className="p-1 text-[#6B6B6B] hover:text-[#111111]"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-5 w-5 stroke-[1.5]" />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto py-6">
+              <div className="flex-1 overflow-y-auto py-5">
                 <FilterPanel />
               </div>
 
-              <div className="border-t border-[#D8D3CB] pt-4">
+              <div className="border-t border-[#D8D3CB] pt-3">
                 <button
                   onClick={() => setMobileDrawer(false)}
-                  className="w-full bg-[#111111] py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#F7F5F0]"
+                  className="w-full bg-[#111111] py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#F7F5F0] transition-transform active:scale-95"
                 >
-                  Apply & Show {filtered.length} Cars
+                  Apply & Show ({filtered.length})
                 </button>
               </div>
             </motion.div>

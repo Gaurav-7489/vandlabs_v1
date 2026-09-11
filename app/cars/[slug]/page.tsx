@@ -63,7 +63,7 @@ export default async function CarDetailPage({
   ]
 
   const whatsappText = encodeURIComponent(
-    `Hello VandLabs, I would like to enquire about the ${v.year} ${v.brand} ${v.model} (${v.id}) listed at ${formatINR(v.price)}.`
+    `Hello Luxe Motors, I would like to enquire about the ${v.year} ${v.brand} ${v.model} (${v.id}) listed at ${formatINR(v.price)}.`
   )
 
   return (
@@ -290,7 +290,7 @@ export default async function CarDetailPage({
 
               <div className="mt-12 border-l-2 border-[#111111] pl-6">
                 <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#111111]">
-                  VandLabs Quality Warranty
+                  Luxe Motors Quality Warranty
                 </div>
                 <p className="mt-2 text-xs leading-relaxed text-[#6B6B6B]">
                   This vehicle has been physically evaluated against water-logging, chassis compromise, and unauthorized ECU alterations. Test report available on premise.

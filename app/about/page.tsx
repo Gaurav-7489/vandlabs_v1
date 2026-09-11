@@ -47,7 +47,7 @@ export default function About() {
               <div className="relative aspect-[16/11] overflow-hidden border border-[#D8D3CB] bg-[#E7E0D4]">
                 <Image
                   src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85"
-                  alt="VandLabs Showroom Floor"
+                  alt="Luxe Motors Showroom Floor"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -65,7 +65,7 @@ export default function About() {
                   Purchasing a pre-owned vehicle shouldn’t require blind faith or defensive skepticism.
                 </p>
                 <p>
-                  VandLabs was founded to counter the opaque, high-friction climate of traditional classified portals. We operate with an editorial eye: treating each automobile not as commodified inventory, but as a finely engineered machine deserving of rigorous provenance.
+                  Luxe Motors was founded to counter the opaque, high-friction climate of traditional classified portals. We operate with an editorial eye: treating each automobile not as commodified inventory, but as a finely engineered machine deserving of rigorous provenance.
                 </p>
                 <p>
                   Every automobile listed is backed by physically verified registration certificates, non-objection clearances, and exhaustive 150-point mechanical assessments conducted by senior technicians.
@@ -94,7 +94,7 @@ export default function About() {
                   OPERATING PRINCIPLES
                 </div>
                 <h2 className="font-editorial mt-5 text-3xl font-light tracking-tight text-[#111111] sm:text-5xl md:text-6xl">
-                  The VandLabs Benchmark.
+                  The Luxe Motors Benchmark.
                 </h2>
               </Reveal>
             </div>

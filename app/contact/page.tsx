@@ -36,62 +36,72 @@ const SHOWROOM_CHANNELS = [
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-[#F7F5F0] text-[#111111] antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#F7F5F0] text-[#111111] antialiased selection:bg-[#E7E0D4] selection:text-[#111111]">
       <Header />
-      <main className="pt-24 md:pt-32">
-        <section className="mx-auto max-w-[1440px] px-6 py-12 md:px-10 md:py-20">
+      <main className="pt-20 sm:pt-24 md:pt-28">
+        <section className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 sm:py-12 md:px-10 md:py-16">
           <Reveal>
-            <div className="inline-block border-b border-[#111111] pb-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-[#6B6B6B]">
+            <div className="inline-block border-b border-[#111111] pb-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#6B6B6B]">
               Direct Showroom Connection
             </div>
-            <h1 className="font-editorial mt-6 max-w-5xl text-5xl leading-[0.9] tracking-tight md:text-8xl lg:text-9xl">
+            <h1 className="mt-4 max-w-5xl font-serif text-4xl font-light leading-[1.02] tracking-tight text-[#111111] sm:text-6xl md:text-8xl lg:text-9xl">
               Let’s make this <br />
-              <span className="italic font-light text-[#6B6B6B]">less complicated.</span>
+              <span className="italic font-normal text-[#6B6B6B]">less complicated.</span>
             </h1>
           </Reveal>
 
-          <div className="mt-16 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="mt-10 grid gap-8 sm:mt-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
             {/* Direct Channel Cards */}
             <Reveal>
-              <div className="grid gap-4">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1">
                 {SHOWROOM_CHANNELS.map((ch) => {
                   const Icon = ch.icon
                   const Content = (
-                    <div className="border border-[#D8D3CB] bg-[#F7F5F0] p-6 transition-colors hover:border-[#111111]">
+                    <div className="group h-full border border-[#D8D3CB] bg-[#F7F5F0] p-5 transition-all duration-200 hover:border-[#111111] sm:p-6">
                       <div className="flex items-center justify-between">
-                        <Icon className="h-5 w-5 text-[#111111]" />
-                        {ch.href && <ArrowUpRight className="h-4 w-4 text-[#6B6B6B]" />}
+                        <Icon className="h-4 w-4 stroke-[1.75] text-[#111111]" />
+                        {ch.href && (
+                          <ArrowUpRight className="h-3.5 w-3.5 text-[#6B6B6B] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#111111]" />
+                        )}
                       </div>
-                      <p className="mt-6 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#6B6B6B]">
+                      <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6B6B6B]">
                         {ch.label}
                       </p>
-                      <p className="font-editorial mt-1 text-xl font-medium text-[#111111]">
+                      <p className="mt-1 font-serif text-lg font-normal tracking-tight text-[#111111] sm:text-xl">
                         {ch.val}
                       </p>
-                      <p className="mt-2 text-xs text-[#6B6B6B]">{ch.caption}</p>
+                      <p className="mt-2 text-xs leading-relaxed text-[#6B6B6B]">{ch.caption}</p>
                     </div>
                   )
 
                   return ch.href ? (
-                    <a key={ch.label} href={ch.href} target={ch.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                    <a
+                      key={ch.label}
+                      href={ch.href}
+                      target={ch.href.startsWith('http') ? '_blank' : undefined}
+                      rel="noopener noreferrer"
+                      className="block h-full"
+                    >
                       {Content}
                     </a>
                   ) : (
-                    <div key={ch.label}>{Content}</div>
+                    <div key={ch.label} className="h-full">
+                      {Content}
+                    </div>
                   )
                 })}
               </div>
             </Reveal>
 
-            {/* Structured Enquiry Form */}
+            {/* Structured Enquiry Form Container */}
             <Reveal delay={0.1}>
-              <div className="border border-[#111111] bg-[#E7E0D4]/40 p-8 md:p-12">
-                <div className="border-b border-[#D8D3CB] pb-6 mb-8">
-                  <div className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#6B6B6B]">
+              <div className="w-full border border-[#111111] bg-[#E7E0D4]/35 p-5 sm:p-8 md:p-12">
+                <div className="mb-6 border-b border-[#D8D3CB] pb-4 sm:mb-8 sm:pb-6">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#6B6B6B]">
                     Enquiry & Appraisal Desk
                   </div>
-                  <h2 className="font-editorial mt-2 text-3xl font-medium tracking-tight text-[#111111] md:text-4xl">
-                    Dispatch Your Brief
+                  <h2 className="mt-1.5 font-serif text-2xl font-light tracking-tight text-[#111111] sm:text-3xl md:text-4xl">
+                    Dispatch Your Brief<span className="text-[#6B6B6B]">.</span>
                   </h2>
                 </div>
                 <EnquiryForm />
