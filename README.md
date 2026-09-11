@@ -1,6 +1,6 @@
-# VandLabs Motors — V1 Frontend
+# Luxe Motors — V1 Frontend
 
-Production-oriented Next.js + TypeScript + Tailwind + Framer Motion frontend based on the VandLabs Used Car Showroom Product Requirements Document.
+Production-oriented Next.js + TypeScript + Tailwind + Framer Motion frontend for the Luxe Motors used-car showroom experience.
 
 ## Routes
 - `/` premium showroom homepage
@@ -17,4 +17,4 @@ Public pages use static V1 data in `lib/data.ts` as a backend-safe seam. Replace
 
 Admin interactions are intentionally presentation-ready placeholders until real authentication, authorization, persistence, media storage and lead APIs are connected.
 
-The PRD calls for server-side authorization, validation, secure uploads, HTTPS, environment-only secrets, backups, SEO, analytics, and production deployment; these are backend/deployment workstreams and are not faked in the frontend.
+The frontend is branded as Luxe Motors; backend/deployment concerns such as server-side authorization, validation, secure uploads, HTTPS, environment-only secrets, backups, SEO, analytics, and production deployment remain separate workstreams.
