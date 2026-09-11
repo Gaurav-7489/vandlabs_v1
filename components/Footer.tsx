@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Col 1: Brand & Manifesto */}
           <div>
             <Link href="/" className="font-editorial text-3xl font-bold tracking-tight text-[#F7F5F0]">
-              VAND<span className="text-white/40 font-light">/</span>LABS
+              LUXE<span className="text-white/40 font-light">/</span>MOTORS
             </Link>
             <p className="mt-5 max-w-sm text-xs leading-relaxed text-white/60">
               An independent automotive showroom delivering high-tier curated pre-owned vehicles. Built upon verified histories, strict mechanical inspection, and transparent commercial practices.
@@ -103,7 +103,7 @@ export default function Footer() {
 
         {/* Bottom Strip */}
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-[11px] text-white/40 sm:flex-row sm:items-center">
-          <p>© 2026 VandLabs Motors. Built strictly to digital product specification v1.0.</p>
+          <p>© 2026 Luxe Motors. Built strictly to digital product specification v1.0.</p>
           <p className="font-mono-num">SECURED ENTERPRISE ARCHITECTURE</p>
         </div>
       </div>
