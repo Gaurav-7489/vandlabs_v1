@@ -75,7 +75,7 @@ export const vehicles: Vehicle[] = [
       'Heated Front Seats',
     ],
     images: [
-      img('1606664515524-9fbcf77adfdb'),
+      img('1557323137-bd6bd20fe022'),
       img('1494976388531-d1058494cdd8'),
       img('1549317661-bd32c8ce0db2'),
     ],
@@ -160,7 +160,7 @@ export const vehicles: Vehicle[] = [
       '7 Seats',
     ],
     images: [
-      img('1503736334956-4db8b4420520'),
+      img('1742697167564-9571d0391c92'),
       img('1518987048-93e2966b31a8'),
       img('1533473359331-0135ef1b58bf'),
     ],
