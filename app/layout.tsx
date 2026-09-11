@@ -33,8 +33,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'VandLabs Motors — Curated Automotive Showroom',
-    template: '%s — VandLabs Motors',
+    default: 'Luxe Motors — Curated Automotive Showroom',
+    template: '%s — Luxe Motors',
   },
   description:
     'A premium digital showroom for inspected, documented and carefully selected pre-owned vehicles.',
