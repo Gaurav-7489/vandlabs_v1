@@ -40,10 +40,10 @@ export default function Header() {
         <div className="mx-auto flex max-w-[1440px] h-20 items-center justify-between px-6 md:px-10 lg:px-12">
           <Link href="/" className="group flex items-center gap-2.5">
             <span className="font-editorial text-2xl font-bold tracking-tighter text-[#111111] transition-opacity duration-300 group-hover:opacity-70">
-              VAND<span className="text-[#6B6B6B] font-light">/</span>LABS
+              LUXE<span className="text-[#6B6B6B] font-light">/</span>MOTORS
             </span>
             <span className="hidden sm:inline-block border border-[#111111]/15 px-2 py-0.5 text-[9px] uppercase tracking-[0.2em] text-[#6B6B6B]">
-              Motors
+              Automotive
             </span>
           </Link>
 
