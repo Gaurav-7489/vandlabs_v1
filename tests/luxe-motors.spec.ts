@@ -17,6 +17,23 @@ function isDesktop(page: Page) {
   return page.viewportSize()!.width >= 1000
 }
 
+async function scrollToFormAction(page: Page, form: ReturnType<Page['locator']>) {
+  const submit = form.locator('button[type="submit"]')
+
+  await submit.evaluate((element) => {
+    const rect = element.getBoundingClientRect()
+    window.scrollTo({
+      top: window.scrollY + rect.top - window.innerHeight * 0.35,
+      behavior: 'auto',
+    })
+  })
+
+  // The form is wrapped in a Framer Motion reveal. Scrolling first lets
+  // whileInView start the animation before Playwright attempts the click.
+  await expect(submit).toBeVisible()
+  await expect(submit).toBeEnabled()
+}
+
 async function collectPageErrors(page: Page) {
   const consoleErrors: string[] = []
   const pageErrors: string[] = []
@@ -405,15 +422,17 @@ test.describe('Luxe Motors — Contact & Enquiry', () => {
       waitUntil: 'networkidle',
     })
 
-    // Keep the production smooth-scroll experience intact while preventing
-    // Playwright's automatic scroll-to-target from waiting on the CSS animation.
-    await page.evaluate(() => {
-      document.documentElement.style.scrollBehavior = 'auto'
-    })
-
     const form = page.locator('form')
+    const submit = form.locator('button[type="submit"]')
 
-    await form.locator('button[type="submit"]').click()
+    await scrollToFormAction(page, form)
+
+    // Native HTML validation prevents the submit event from firing when
+    // required controls are empty. Check the actual browser validity state.
+    expect(await form.evaluate((element) => (element as HTMLFormElement).checkValidity()))
+      .toBe(false)
+
+    await submit.click()
 
     const invalidFields = await form.locator(':invalid').count()
 
@@ -436,11 +455,9 @@ test.describe('Luxe Motors — Contact & Enquiry', () => {
       waitUntil: 'networkidle',
     })
 
-    await page.evaluate(() => {
-      document.documentElement.style.scrollBehavior = 'auto'
-    })
-
     const form = page.locator('form')
+
+    await scrollToFormAction(page, form)
 
     await form.locator('input[type="text"]').first().fill(
       'Playwright Test User'
@@ -460,13 +477,29 @@ test.describe('Luxe Motors — Contact & Enquiry', () => {
       'Automated Luxe Motors test enquiry.'
     )
 
-    await form.locator('button[type="submit"]').click()
+    await submitForm(page, form)
 
     await expect(
       page.getByText(/Inquiry confirmed/i)
     ).toBeVisible()
   })
 })
+
+async function submitForm(page: Page, form: ReturnType<Page['locator']>) {
+  const submit = form.locator('button[type="submit"]')
+
+  await submit.evaluate((element) => {
+    const rect = element.getBoundingClientRect()
+    window.scrollTo({
+      top: window.scrollY + rect.top - window.innerHeight * 0.35,
+      behavior: 'auto',
+    })
+  })
+
+  await expect(submit).toBeVisible()
+  await expect(submit).toBeEnabled()
+  await submit.click()
+}
 
 /*
 |--------------------------------------------------------------------------
