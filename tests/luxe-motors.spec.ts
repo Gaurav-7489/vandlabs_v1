@@ -311,7 +311,7 @@ test.describe('Luxe Motors — Inventory', () => {
     })
 
     const search = page.locator(
-      'input[placeholder*="Search by make"]'
+      'input[placeholder*="Search make, model"]'
     )
 
     await expect(search).toBeVisible()
@@ -405,6 +405,12 @@ test.describe('Luxe Motors — Contact & Enquiry', () => {
       waitUntil: 'networkidle',
     })
 
+    // Keep the production smooth-scroll experience intact while preventing
+    // Playwright's automatic scroll-to-target from waiting on the CSS animation.
+    await page.evaluate(() => {
+      document.documentElement.style.scrollBehavior = 'auto'
+    })
+
     const form = page.locator('form')
 
     await form.locator('button[type="submit"]').click()
@@ -428,6 +434,10 @@ test.describe('Luxe Motors — Contact & Enquiry', () => {
 
     await page.goto('/contact', {
       waitUntil: 'networkidle',
+    })
+
+    await page.evaluate(() => {
+      document.documentElement.style.scrollBehavior = 'auto'
     })
 
     const form = page.locator('form')
