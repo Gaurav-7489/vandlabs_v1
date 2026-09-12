@@ -7,8 +7,18 @@ import { ArrowUpRight, Gauge, Fuel, Cog } from 'lucide-react'
 import type { Vehicle } from '@/lib/data'
 import { formatINR } from '@/lib/data'
 
+const IMAGE_FALLBACKS: Record<string, string> = {
+  'https://images.unsplash.com/photo-1557323137-bd6bd20fe022?auto=format&fit=crop&w=1600&q=85':
+    'https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1600&q=85',
+  'https://images.unsplash.com/photo-1742697167564-9571d0391c92?auto=format&fit=crop&w=1600&q=85':
+    'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1600&q=85',
+  'https://images.unsplash.com/photo-1549399542-7e82138f3d54?auto=format&fit=crop&w=1600&q=85':
+    'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1600&q=85',
+}
+
 export default function VehicleCard({ v }: { v: Vehicle }) {
   const isAvailable = v.status === 'Available'
+  const imageSrc = IMAGE_FALLBACKS[v.images[0]] ?? v.images[0]
 
   return (
     <motion.div
@@ -20,7 +30,7 @@ export default function VehicleCard({ v }: { v: Vehicle }) {
         {/* Cover Image Container */}
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E7E0D4]/50">
           <Image
-            src={v.images[0]}
+            src={imageSrc}
             alt={`${v.brand} ${v.model} ${v.variant}`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
