@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import SmoothScroll from '@/components/SmoothScroll'
 
 const editorialSerif = Cormorant_Garamond({
   subsets: ['latin'],
@@ -53,9 +54,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${editorialSerif.variable} ${modernSans.variable} ${technicalMono.variable} scroll-smooth`}
+      className={`${editorialSerif.variable} ${modernSans.variable} ${technicalMono.variable}`}
     >
       <body className="min-h-screen bg-[#F7F5F0] font-sans text-[#111111] antialiased selection:bg-[#111111] selection:text-[#F7F5F0] [text-rendering:optimizeLegibility]">
+        <SmoothScroll />
         {children}
       </body>
     </html>
