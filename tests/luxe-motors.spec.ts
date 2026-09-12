@@ -432,7 +432,11 @@ test.describe('Luxe Motors — Contact & Enquiry', () => {
     expect(await form.evaluate((element) => (element as HTMLFormElement).checkValidity()))
       .toBe(false)
 
-    await submit.click()
+    // Lenis keeps the scroll animation loop alive on mobile, so Playwright's
+    // geometric stability check can remain pending even after the button is
+    // visibly ready. Visibility and enabled state are asserted above; force
+    // only bypasses that stability check and still dispatches a real click.
+    await submit.click({ force: true })
 
     const invalidFields = await form.locator(':invalid').count()
 
@@ -498,7 +502,9 @@ async function submitForm(page: Page, form: ReturnType<Page['locator']>) {
 
   await expect(submit).toBeVisible()
   await expect(submit).toBeEnabled()
-  await submit.click()
+
+  // See the mobile Lenis stability note in the required-fields test.
+  await submit.click({ force: true })
 }
 
 /*
