@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 1px;
   color-scheme: light;
 }
 
@@ -46,6 +47,13 @@ button, input, select, textarea {
 ::selection {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* Keep reduced-motion users on native instant scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Editorial Typography Scaffolding */
